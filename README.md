@@ -7,6 +7,5 @@ A curated catalog of software tools for bacterial data analysis. To be included 
 
 
 # Purpose
-This database is designed to be an overview of the currently available bacteria analysis software, it is unlikely to be 100% complete or accurate but will be updated as new software becomes available.
-
+This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are released.
 
