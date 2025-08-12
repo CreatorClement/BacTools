@@ -7,7 +7,7 @@ A curated catalog of software tools for bacterial data analysis. To be included 
 
 
 # Overview
-This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are released.
+This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are added.
 
 
 <div align="center">
