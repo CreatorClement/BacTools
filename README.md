@@ -2,6 +2,7 @@
 
 # BacTools
 
+https://doi.org/10.5281/zenodo.16816974
 
 A curated catalog of software tools for bacterial data analysis. These tools were compiled from CRAN, Bioconductor, and GitHub.
 
