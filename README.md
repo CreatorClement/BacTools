@@ -10,6 +10,7 @@ A curated catalog of software tools for bacterial data analysis. To be included 
 This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are released.
 
 
+## Top 20 Bacterial Data Analysis Tools by Citation Number
 |Tool Name    |Summary                                                                              |Category                               |Language | Citation Count|Stars |Source |DOI |Docs |
 |:------------|:------------------------------------------------------------------------------------|:--------------------------------------|:--------|--------------:|:-----|:------|:---|:----|
 |gggenomes    |A Grammar of Graphics for Comparative Genomics                                       |Specialized analysis                   |R        |             46|      |CRAN   |[doi](https://doi.org/10.32614/CRAN.package.gggenomes)|[link](https://cran.r-project.org/web/packages/gggenomes/index.html)|
