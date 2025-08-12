@@ -2,7 +2,6 @@
 
 # BacTools
 
-https://doi.org/10.5281/zenodo.16816974
 
 A curated catalog of software tools for bacterial data analysis. These tools were compiled from CRAN, Bioconductor, and GitHub.
 
@@ -10,6 +9,7 @@ A curated catalog of software tools for bacterial data analysis. These tools wer
 # Overview
 This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are added.
 
+[DOI: 10.5281/zenodo.16816974](https://doi.org/10.5281/zenodo.16816974)
 
 <div align="center">
 
