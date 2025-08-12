@@ -42,3 +42,13 @@ Taxonomic Rank by Shared Asvs |Specialized analysis                   |R        
 |growthcurver |Simple Metrics to Summarize Growth Curves                                            |Specialized analysis                   |R        |              1|CRAN   |[doi](https://doi.org/10.32614/CRAN.package.growthcurver)|[link](https://cran.r-project.org/web/packages/growthcurver/index.html)|
 |Holomics     |An User-Friendly R 'shiny' Application for Multi-Omics Data
 Integration and Analysis  |Specialized analysis                   |R        |              1|      |CRAN   |[doi](https://doi.org/10.32614/CRAN.package.Holomics)|[link](https://cran.r-project.org/web/packages/Holomics/index.html)|
+
+
+# Citation
+Tasmine Clement. (2025). CreatorClement/BacTools: Bacterial Tools (BacTools): A Catalog of Software Tools for Bacterial Data Analysis (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.16816975
+
+
+
+
+
+
