@@ -6,6 +6,6 @@
 A curated catalog of software tools for bacterial data analysis. To be included into BacTools, a software tool must be publicly available for download through a recognized repository such as CRAN, Bioconductor, PyPI, Conda, GitHub, or Bitbucket.
 
 
-# Purpose
+# Overview
 This catalog provides a general overview of bacteria analysis software that are publically availaible. While it may not be entirely comprehensive or error-free, it will be regularly updated as new tools are released.
 
