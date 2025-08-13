@@ -47,7 +47,7 @@ Integration and Analysis  |Specialized analysis                   |R        |   
 # Citation
 Tasmine Clement. (2025). CreatorClement/BacTools: Bacterial Tools (BacTools): A Catalog of Software Tools for Bacterial Data Analysis (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.16816975
 
-
+# Acknowledgements
 
 
 
