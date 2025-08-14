@@ -14,7 +14,7 @@ This catalog provides a general overview of bacteria analysis software that are 
 
 <div align="center">
 
-## Top 20 Bacterial Data Analysis Tools on GitHub Stars
+## Top 20 Bacterial Data Analysis Tools on GitHub
 
 | Name | Summary | DOI | Author | Language | Release Date | Docs | Stars | Source | Category | Citation Count |
 |------|---------|-----|--------|----------|--------------|------|-------|--------|----------|----------------|
