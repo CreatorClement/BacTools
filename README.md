@@ -39,12 +39,16 @@ This catalog provides a general overview of bacteria analysis software that are 
 | MicrobiomeAnalystR | A companion R package for the MicrobiomeAnalyst web server | NA | xia-lab | R | 2019-05-01T12:48:01Z | [Link](https://github.com/xia-lab/MicrobiomeAnalystR) | 127 | GitHub | Metagenomics and community analysis | NA |
 | phandango | an interactive viewer for populations of bacterial genomes linked by a phylogeny | NA | jameshadfield | JavaScript | 2015-02-04T14:26:17Z | [Link](https://github.com/jameshadfield/phandango) | 126 | GitHub | Phylogenetic and evolutionary analysis | NA |
 
+<div align="left">
 
-
-# Citation
+# BacTools
 Tasmine Clement. (2025). CreatorClement/BacTools: Bacterial Tools (BacTools): A Catalog of Software Tools for Bacterial Data Analysis (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.16816975
 
 # Acknowledgements
+
+Gurpreet Kaur (2025). My Top Go-To Protocol Resources for Bioinformatics, Computational Biology & Omics. GitHub. https://github.com/gurpreet-bioinfo/protocol_resources_bioin4matics-compbio-omics
+
+Zappia, L., & Theis, F. J. (2021). 1000 tools paper (Version 20211112). Zenodo. https://doi.org/10.5281/zenodo.5682071
 
 
 
