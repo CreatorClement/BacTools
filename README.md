@@ -43,6 +43,7 @@ This catalog provides a general overview of bacteria analysis software that are 
 Tasmine Clement. (2025). CreatorClement/BacTools: Bacterial Tools (BacTools): A Catalog of Software Tools for Bacterial Data Analysis (v1.0.0). Zenodo. https://doi.org/10.5281/zenodo.16816975
 
 # Acknowledgements
+I'd like to thank Dr. Timileyin Adediran for bringing to light the need for a concise catalog of bacteria software tools. 
 
 Gurpreet Kaur (2025). My Top Go-To Protocol Resources for Bioinformatics, Computational Biology & Omics. GitHub. https://github.com/gurpreet-bioinfo/protocol_resources_bioin4matics-compbio-omics
 
