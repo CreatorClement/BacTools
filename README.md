@@ -1,5 +1,3 @@
-<img width="200" height="200" alt="image" src="https://github.com/user-attachments/assets/b0c16ca0-6f67-4aae-a104-e96762a4508b" />
-
 # BacTools
 
 
