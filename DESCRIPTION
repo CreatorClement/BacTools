@@ -1,0 +1,30 @@
+Package: BacTools
+Title: Automated Software Catalog Creator for Bacterial Data Analysis
+Version: 0.0.0.9000
+Authors@R:
+    person("Tasmine", "Clement", , "tasmine@umich.edu", role = c("aut", "cre"))
+Description: Automates discovery of software tools for bacterial and
+    microbiome data analysis by querying CRAN, Bioconductor, and GitHub
+    for packages and repositories matching a set of search tags. Results
+    are combined into a single de-duplicated catalog with metadata
+    (author, DOI, citation, license, release date, and category) and can
+    be exported to CSV for downstream use.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Suggests: 
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
+Imports:
+    tools,
+    dplyr,
+    httr,
+    jsonlite,
+    base64enc,
+    rcrossref,
+    purrr,
+    tibble,
+    BiocPkgTools,
+    readr
+Config/roxygen2/version: 8.0.0

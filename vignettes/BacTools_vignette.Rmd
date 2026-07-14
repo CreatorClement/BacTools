@@ -1,0 +1,261 @@
+---
+title: "BacTools: Discovering Bacterial Bioinformatics Tools Across CRAN, Bioconductor, and GitHub"
+author: "Tasmine"
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 3
+vignette: >
+  %\VignetteIndexEntry{BacTools: Discovering Bacterial Bioinformatics Tools}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse  = TRUE,
+  comment   = "#>",
+  eval      = FALSE   # set to TRUE when running live; FALSE keeps output static for CRAN checks
+)
+```
+
+## Introduction
+
+Bacterial bioinformatics is a rapidly growing field, with tools scattered across
+CRAN, Bioconductor, and GitHub. Finding the right tool for a task — assembly,
+resistance profiling, microbiome analysis — often requires searching each
+repository separately.
+
+**BacTools** solves this by providing a unified search interface that queries all
+three repositories simultaneously, returning a single tidy catalog you can filter,
+explore, and export.
+
+### What BacTools does
+
+1. Searches **CRAN** and **Bioconductor** by keyword tags in package titles and descriptions
+2. Searches **GitHub** by repository topics
+3. Combines results into a single data frame with consistent columns
+4. Optionally retrieves DOIs and citation counts
+5. Exports the catalog to CSV for downstream use
+
+---
+
+## Installation
+
+```{r install, eval=FALSE}
+# Install from GitHub (development version)
+# install.packages("remotes")
+remotes::install_github("yourusername/BacTools")
+```
+
+```{r load}
+library(BacTools)
+```
+
+---
+
+## Example Data
+
+For this tutorial we use the package's built-in default search terms so no
+external files are required. The default tags reflect common
+bacterial bioinformatics keywords:
+
+```{r show-defaults}
+# Tags used to search CRAN, Bioconductor, and GitHub
+BacTools::default_bacterial_tags
+```
+
+---
+
+## Happy Path: Full Catalog Search
+
+The main function is `search_bactools()`. Below we run it on CRAN and
+Bioconductor (the example data), skipping GitHub so no token is needed for
+the demo.
+
+```{r run-search}
+catalog <- search_bactools(
+  use_defaults   = TRUE,
+  include_cran   = TRUE,
+  include_bioc   = TRUE,
+  include_github = FALSE   # set TRUE and supply github_token for full run
+)
+```
+
+The function prints a live summary as it runs:
+
+```
+============================================================
+Querying CRAN...
+============================================================
+Searching CRAN with 9 tags: bacteria, bacteriology, microbiome, ...
+Found 172 CRAN packages
+
+============================================================
+Querying Bioconductor...
+============================================================
+Found 116 Bioconductor packages
+
+============================================================
+SUMMARY: Found 172 CRAN, 116 Bioconductor, 0 GitHub tools (Total: 288 unique)
+============================================================
+```
+
+---
+
+## Inspecting the Output
+
+The result is a plain data frame — easy to explore with base R or tidyverse tools.
+
+```{r inspect}
+# Dimensions
+dim(catalog)
+
+# Column names
+colnames(catalog)
+
+# First few rows
+head(catalog[, c("name", "source", "summary", "license", "release_date")])
+```
+
+### Columns returned
+
+| Column        | Description                                      |
+|---------------|--------------------------------------------------|
+| `name`        | Package / repository name                        |
+| `author`      | Author(s)                                        |
+| `summary`     | One-line description                             |
+| `doi`         | DOI (where available)                            |
+| `apa_citation`| APA-formatted citation string                    |
+| `language`    | Programming language                             |
+| `release_date`| Date of first / latest release                   |
+| `docs`        | Link to documentation                            |
+| `tutorials`   | Link to vignettes / tutorials                    |
+| `license`     | Software license                                 |
+| `github_stars`| GitHub stars (GitHub results only)               |
+| `source`      | Repository source: CRAN, Bioconductor, or GitHub |
+| `category`    | Auto-assigned tool category                      |
+| `catalog_date`| Timestamp of this search                         |
+| `owner`       | GitHub repository owner (GitHub results only)    |
+
+---
+
+## Filtering the Catalog
+
+Because the output is a standard data frame you can filter it however you like.
+
+```{r filter}
+library(dplyr)
+
+# Tools related to antimicrobial resistance
+amr_tools <- catalog |>
+  filter(grepl("resist|AMR|antibiotic", summary, ignore.case = TRUE))
+
+nrow(amr_tools)
+head(amr_tools[, c("name", "source", "summary")])
+
+# Only Bioconductor tools
+bioc_tools <- catalog |> filter(source == "Bioconductor")
+
+# Tools released after 2022
+recent_tools <- catalog |>
+  filter(as.Date(substr(release_date, 1, 10)) > as.Date("2022-01-01"))
+
+nrow(recent_tools)
+```
+
+---
+
+## Adding Custom Search Terms
+
+You can extend the default search with your own keywords without replacing them.
+
+```{r custom-tags}
+custom_catalog <- search_bactools(
+  use_defaults    = TRUE,
+  additional_tags = c("plasmid", "phage", "virulence"),
+  include_cran    = TRUE,
+  include_bioc    = TRUE,
+  include_github  = FALSE
+)
+
+nrow(custom_catalog)
+```
+
+Or search with entirely custom terms:
+
+```{r custom-only}
+assembly_tools <- search_bactools(
+  tags           = c("assembly", "assembler", "contig"),
+  use_defaults   = FALSE,
+  include_cran   = TRUE,
+  include_bioc   = TRUE,
+  include_github = FALSE
+)
+```
+
+---
+
+## Including GitHub
+
+To include GitHub repositories, supply a personal access token. Create one at
+<https://github.com/settings/tokens> (no special scopes needed for public repos).
+
+```{r github, eval=FALSE}
+full_catalog <- search_bactools(
+  use_defaults   = TRUE,
+  include_cran   = TRUE,
+  include_bioc   = TRUE,
+  include_github = TRUE,
+  github_token   = Sys.getenv("GITHUB_PAT"),  # store token in .Renviron
+  github_per_page = 100,
+  github_pages    = 5
+)
+
+# GitHub-specific columns
+full_catalog |>
+  filter(source == "GitHub") |>
+  arrange(desc(github_stars)) |>
+  head(10) |>
+  select(name, summary, github_stars, docs)
+```
+
+---
+
+## Exporting the Catalog
+
+Save the catalog to a timestamped CSV for sharing or downstream analysis.
+
+```{r export}
+export_catalog(catalog, filename = "bacterial_tools_catalog.csv")
+# Saves as: bacterial_tools_catalog_20260325_120000.csv
+
+# Without timestamp
+export_catalog(catalog,
+               filename          = "bacterial_tools_catalog.csv",
+               include_timestamp = FALSE)
+```
+
+---
+
+## Summary
+
+In a few lines of code, BacTools:
+
+1. **Searched** CRAN and Bioconductor for bacterial bioinformatics packages
+2. **Combined** results into a single tidy data frame with 288 unique tools
+3. **Enabled** easy filtering by source, keyword, date, or license
+4. **Exported** the catalog to CSV
+
+The same workflow scales to GitHub and accepts any custom search terms,
+making BacTools a flexible starting point for systematic tool discovery in
+bacterial bioinformatics.
+
+---
+
+## Session Info
+
+```{r session-info, eval=TRUE}
+sessionInfo()
+```
