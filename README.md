@@ -43,4 +43,5 @@ Is there a feature you'd like to see included? Please let us know! Pull requests
 
 * AI was used to format the files in [Documents](https://github.com/CreatorClement/BacTools/tree/main/documents) and the catalogs within the test folder
 * Drawio was used to develop the [DDS document](https://github.com/CreatorClement/BacTools/blob/main/documents/bactools_DDS.pdf)
+* ChatGTP was used to create the logo
 
